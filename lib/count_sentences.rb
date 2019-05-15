@@ -15,13 +15,7 @@ class String
   end
 
   def count_sentences
-    sentence_count = 0
-    self.length.times do |n|
-      if self[n] == '!' || self[n] == '?' || self[n] == '.'
-        sentence_count += 1
-      end
-    end
-    return sentence_count
+  self.split(/\.|\?|\!/).delete_if {|sent| sent.size < 2}.count
   end
   
 end
